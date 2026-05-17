@@ -14,7 +14,7 @@ describe('Form Tests', () => {
     it('should show error when submitting empty string (unhappy path)', () => {
       cy.get('[data-cy="toggle_form"]').click();
       cy.get('[data-cy="set_form"] input[type="submit"]').click();
-      cy.get('.error').should('be.visible');
+      cy.get('[data-cy="error"]').should('be.visible');
     });
   });
 
@@ -34,14 +34,14 @@ describe('Form Tests', () => {
       cy.get('[data-cy="toggle_form"]').click();
       cy.get('[data-cy="card_form"] input[name="descriptionInput"]').type('Some description');
       cy.get('[data-cy="card_form"] input[type="submit"]').click();
-      cy.get('.error').should('be.visible');
+      cy.get('[data-cy="error"]').should('be.visible');
     });
 
     it('should show error when submitting empty description (unhappy path)', () => {
       cy.get('[data-cy="toggle_form"]').click();
       cy.get('[data-cy="card_form"] input[name="termInput"]').type('Some term');
       cy.get('[data-cy="card_form"] input[type="submit"]').click();
-      cy.get('.error').should('be.visible');
+      cy.get('[data-cy="error"]').should('be.visible');
     });
   });
 });

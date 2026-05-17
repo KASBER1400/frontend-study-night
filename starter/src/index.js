@@ -8,15 +8,16 @@ import { renderHomePage } from "./homePage.js";
 
 // Navigation logic
 const addListenerToNavigation = () => {
-  addNavListener("cardSetPage", renderCardSetsPage);
-  addNavListener("aboutPage", renderAboutPage);
-  addNavListener("homePage", renderHomePage);
+  addNavListener("cardSetPage", renderCardSetsPage, "nav-card-sets");
+  addNavListener("aboutPage", renderAboutPage, "nav-about");
+  addNavListener("homePage", renderHomePage, "nav-home");
 };
 
 // Helper function to add event listeners to navigation items
-const addNavListener = (elementId, callback) => {
+const addNavListener = (elementId, callback, dataCy) => {
   const element = document.getElementById(elementId);
   if (element) {
+    element.setAttribute("data-cy", dataCy);
     element.addEventListener("click", callback);
   }
 };
@@ -26,4 +27,3 @@ const addNavListener = (elementId, callback) => {
 renderHomePage();
 // Add event listeners to navigation items
 addListenerToNavigation();
-
