@@ -1,8 +1,7 @@
 describe('Form Tests', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:1234');
-    // Navigate to Card Sets page first (where forms are)
-    cy.contains('Card Sets').click();
+    cy.visit('/');
+    cy.get('[data-cy="nav-card-sets"]').click();
   });
 
   describe('Create Set Form', () => {
@@ -21,7 +20,6 @@ describe('Form Tests', () => {
 
   describe('Add Card Form', () => {
     beforeEach(() => {
-      // First, click on a card set to open it
       cy.get('[data-cy="1"]').click();
     });
 

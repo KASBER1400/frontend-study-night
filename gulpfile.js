@@ -1,10 +1,11 @@
 import gulp from 'gulp';
 import shell from 'gulp-shell';
 
-const parcelTask = () => {
-  return shell.task('npx parcel starter/index.html --port 1234')();
-};
+// Default task to build and serve the project using Parcel
+// This will start a server, usually at http://localhost:1234
+gulp.task('default', shell.task('npx parcel starter/index.html'));
 
-const defaultTask = gulp.series(parcelTask);
+// Task to run unit tests with Mocha
+gulp.task('test', shell.task('npx mocha test/shuffle.js'));
 
-export default defaultTask;
+export default gulp.series('default');
